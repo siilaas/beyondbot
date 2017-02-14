@@ -1,13 +1,13 @@
 
 local function pre_process(msg)
   local hash = 'mute_time:'..msg.chat_id_
-  if redis:get(hash) and gp_type(msg.chat_id_) == 'channel' and not is_admin(msg)  then
+  if redis:get(hash) and gp_type(msg.chat_id_) == 'channel' and not is_mod(msg)  then
     tdcli.deleteMessages(msg.chat_id_, {[0] = tonumber(msg.id_)})
   end
  end
  
 local function run(msg, matches)
-  if matches[1]:lower() == 'mt' and is_admin(msg) then
+  if matches[1]:lower() == 'mt' and is_mod(msg) then
      local hash = 'mute_time:'..msg.chat_id_
      if not matches[2] then
 		return "_لطفا ساعت و دقیقه را وارد نمایید!_"
@@ -21,7 +21,7 @@ local function run(msg, matches)
      return "⛔️گروه به مدت: \n`"..matches[2].."` ساعت\n`"..matches[3].."` دقیقه \nتعطیل میباشد.️"
     end
   end
-  if matches[1]:lower() == 'unmt' and is_admin(msg) then
+  if matches[1]:lower() == 'unmt' and is_mod(msg) then
      local hash = 'mute_time:'..msg.chat_id_
      redis:del(hash)
      return "*✅گروه برای ارسال پیام کاربران باز شد.*"
