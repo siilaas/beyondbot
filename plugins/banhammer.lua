@@ -28,7 +28,7 @@ if is_gbanned(data.id_) then
      if not lang then
 		tdcli.sendMessage(arg.chat_id, arg.msg_id, 0, "_User_ "..user_name.." *[ "..data.id_.." ]* _is globally banned_", 0, "md")
     else
-		tdcli.sendMessage(arg.chat_id, arg.msg_id, 0, "_کاربر_ "..user_name.." *[ "..data.id_.." ]* _از تمام گروه های ربات محروم است_", 0, "md")
+		tdcli.sendMessage(arg.chat_id, arg.msg_id, 0, "_کاربر_ "..user_name.." *[ "..data.id_.." ]* _از تمام گروه های ربات به صورت جهاني مسدود شد_", 0, "md")
    end
 kick_user(data.id_, arg.chat_id)
      end
@@ -425,7 +425,7 @@ if is_gbanned(data.id_) then
      if not lang then
      return tdcli.sendMessage(arg.chat_id, "", 0, "_User_ "..user_name.." *"..data.id_.."* _has been_ *globally banned*", 0, "md")
    else
-     return tdcli.sendMessage(arg.chat_id, "", 0, "_کاربر_ "..user_name.." *"..data.id_.."* *از تمام گروه های ربات محروم شد*", 0, "md")
+     return tdcli.sendMessage(arg.chat_id, "", 0, "_کاربر_ "..user_name.." *"..data.id_.."* *از تمام گروه های ربات به صورت جهاني مسدود شد*", 0, "md")
    end
 end
   if cmd == "unbanall" then
@@ -575,7 +575,7 @@ kick_user(matches[2], msg.chat_id_)
    if not lang then
  return tdcli.sendMessage(msg.chat_id_, msg.id_, 0, "*User "..matches[2].." has been globally banned*", 0, "md")
     else
- return tdcli.sendMessage(msg.chat_id_, msg.id_, 0, "*کاربر "..matches[2].." از تمام گروه هار ربات محروم شد*", 0, "md")
+ return tdcli.sendMessage(msg.chat_id_, msg.id_, 0, "*کاربر "..matches[2].." از تمام گروه هار ربات به صورت جهاني مسدود شد*", 0, "md")
       end
    end
   if matches[2] and not string.match(matches[2], '^%d+$') then
